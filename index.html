@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#fafbfc" id="theme-color-meta" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <!-- 分享链接伪装成正常的治愈系睡眠产品 -->
+  <meta property="og:title" content="Solace — 让每一个夜晚，都像回家一样安心" />
+  <meta property="og:description" content="新一代无感智能睡眠伴侣，240万+ 用户的深度好眠之选。" />
+  <meta property="og:type" content="website" />
+  <title>Solace — 让每一个夜晚，都像回家一样安心</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 恐怖氛围叠加层：噪点、扫描线、暗角、血色闪烁 -->
+  <canvas id="noise-canvas" aria-hidden="true"></canvas>
+  <div id="vignette" aria-hidden="true"></div>
+  <div id="scanlines" aria-hidden="true"></div>
+  <div id="flash-overlay" aria-hidden="true"></div>
+  <div id="flashlight" aria-hidden="true"></div>
+
+  <!-- 顶部导航栏 -->
+  <header id="navbar">
+    <div class="nav-inner">
+      <a href="#top" class="logo">
+        <span class="logo-dot"></span>
+        <span id="logo-text">Solace</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features" data-normal="核心功能" data-corrupt="监控模块">核心功能</a>
+        <a href="#testimonials" data-normal="用户口碑" data-corrupt="最后留言">用户口碑</a>
+        <a href="#pricing" data-normal="订阅方案" data-corrupt="契约条款">订阅方案</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="audio-toggle" class="audio-btn" type="button" title="开启沉浸式环境音">
+          <span class="audio-icon">🔇</span>
+          <span class="audio-label">沉浸音效</span>
+        </button>
+        <a href="#pricing" id="nav-cta" class="btn-primary">免费试用</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ==================== 阶段 1：阳光治愈的营销页 ==================== -->
+    <section class="section hero-section" data-stage="1">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge" id="hero-badge">✨ 2026 年度最佳睡眠科技产品</div>
+          <h1 class="hero-title">
+            重新定义你的<br />
+            <span class="gradient-text" id="hero-highlight">每一个夜晚</span>
+          </h1>
+          <p class="hero-subtitle" id="hero-subtitle">
+            Solace 结合新一代无感声学与微环境感知技术，为你打造如云端般轻盈的深度睡眠体验。告别失眠，让清晨的第一缕阳光自然唤醒你。
+          </p>
+          <div class="hero-buttons">
+            <a href="#features" class="btn-primary btn-lg">探索 Solace</a>
+            <button class="btn-secondary btn-lg" type="button" id="demo-audio-btn">▶ 试听助眠白噪音</button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <strong id="stat-1">99.4%</strong>
+              <span>用户满意度</span>
+            </div>
+            <div class="stat-item">
+              <strong id="stat-2">240万+</strong>
+              <span>安心入眠夜晚</span>
+            </div>
+            <div class="stat-item">
+              <strong id="stat-3">0 穿戴</strong>
+              <span>无感床边陪伴</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="device-card">
+            <div class="device-glow"></div>
+            <div class="device-orb">
+              <div class="orb-ring ring-1"></div>
+              <div class="orb-ring ring-2"></div>
+              <div class="orb-core"></div>
+            </div>
+            <div class="device-status">
+              <span class="status-dot"></span>
+              <span id="device-status-text">卧室环境：极佳 · 22°C · 静谧</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <span>向下滑动，了解更多</span>
+        <div class="scroll-arrow">↓</div>
+      </div>
+    </section>
+
+    <!-- ==================== 阶段 2：微妙的不协调感 ==================== -->
+    <section class="section features-section" id="features" data-stage="2">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow" id="feat-eyebrow">科学助眠 · 润物无声</span>
+          <h2 id="feat-title">为什么超过两百万人选择 Solace？</h2>
+          <p id="feat-desc">我们不仅关注你的入睡速度，更在乎你闭上眼睛之后，房间里发生的每一件小事。</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">🌊</div>
+            <h3>自适应白噪音</h3>
+            <p>实时采集卧室底噪，生成柔和的雨声与海浪，温柔掩盖窗外的车流声、楼上的脚步声，以及墙体深处细微的抓挠声。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🫀</div>
+            <h3>毫米波呼吸追踪</h3>
+            <p>无需佩戴手环，Solace 隔空精准捕捉你的每一次心跳与呼吸频率。如果房间里突然多出第二种呼吸节奏，系统会自动记录。</p>
+          </article>
+
+          <article class="feature-card uncanny-card">
+            <div class="feature-icon" id="eye-icon">👁️</div>
+            <h3 class="glitch-hover" data-text="全天候视觉守护">全天候视觉守护</h3>
+            <p>
+              即使在完全伸手不见五指的黑暗中，Solace 的红外阵列也会<span class="subtle-creepy">始终注视着你的床边</span>。请放心闭眼，不要睁开，也不要看向衣柜的缝隙。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 阶段 3：裂痕与异变 ==================== -->
+    <section class="section testimonials-section" id="testimonials" data-stage="3">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow creep-text">真实用户反馈</span>
+          <h2 class="glitch-text" data-text="听听他们入睡后的声音">听听他们入睡后的声音</h2>
+          <p class="muted-text">每一条评价，都来自真实使用过 Solace 的夜晚。</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card t-normal">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“以前我经常凌晨两点还睡不着，用了 Solace 第一周就改善了很多。白噪音非常自然，卧室氛围灯也很治愈。”</p>
+            <div class="t-author">
+              <div class="avatar">林</div>
+              <div>
+                <strong>林知夏</strong>
+                <span>上海 · 已使用 14 天</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card t-uneasy">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“它真的很安静。只是上周三凌晨三点，App 推送说‘您的伴侣已起身’，但我是一个人住的。我把门反锁了，可推送说他还在房间里。”</p>
+            <div class="t-author">
+              <div class="avatar avatar-dim">陈</div>
+              <div>
+                <strong>陈默</strong>
+                <span>北京 · 已使用 47 天（离线）</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card t-corrupt">
+            <div class="t-stars corrupt-stars">★★★★★</div>
+            <p class="t-quote">“不要关灯不要关灯不要关灯它在天花板上学我说话声音一模一样它问我为什么还不睡别往下滑了求你了快关掉这个网页”</p>
+            <div class="t-author">
+              <div class="avatar avatar-void">?</div>
+              <div>
+                <strong class="redacted">████████</strong>
+                <span>未知位置 · 持续在线中</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 阶段 4：系统失控与第四面墙打破 ==================== -->
+    <section class="section breach-section" id="pricing" data-stage="4">
+      <div class="container">
+        <div class="terminal-panel">
+          <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">SOLACE_MONITOR_DAEMON // 实时环境遥测</span>
+          </div>
+          <div class="terminal-body" id="telemetry-log">
+            <div class="log-line">&gt; 连接状态: <span class="danger">已强制接管</span></div>
+            <div class="log-line">&gt; 终端识别: <span id="live-device">检测中...</span></div>
+            <div class="log-line">&gt; 本地时间: <span id="live-time">--:--:--</span></div>
+            <div class="log-line">&gt; 屏幕尺寸: <span id="live-screen">---- x ----</span></div>
+            <div class="log-line">&gt; 检测到当前房间人数: <span class="danger blink">2</span></div>
+            <div class="log-line">&gt; 异常告警: <span id="live-distance" class="danger">你的背后 0.4 米处有阴影移动</span></div>
+            <div class="log-line">&gt; 状态提示: <span id="live-warning" class="warning">请保持面朝屏幕，不要突然回头。</span></div>
+          </div>
+        </div>
+
+        <div class="pricing-corrupt">
+          <div class="price-card broken-left">
+            <div class="strike-tag">原价 ¥299/月</div>
+            <h3>基础陪伴版</h3>
+            <div class="price">¥0</div>
+            <ul>
+              <li><s>温柔唤醒服务</s></li>
+              <li>每晚 03:17 自动录音</li>
+              <li>床底温度异常监测</li>
+            </ul>
+            <button class="btn-cursed" type="button" disabled>名额已满</button>
+          </div>
+
+          <div class="price-card broken-main">
+            <div class="cursed-ribbon">已为你自动订阅</div>
+            <h3 class="glitch-text" data-text="永恒凝视版">永恒凝视版</h3>
+            <div class="price danger">你的清醒</div>
+            <ul>
+              <li>✓ 门锁状态实时同步给「它」</li>
+              <li>✓ 模拟你家人的敲门声</li>
+              <li>✓ 永远不会再孤单一人</li>
+            </ul>
+            <div class="runaway-zone">
+              <button class="btn-runaway" type="button" id="escape-btn">取消订阅</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 阶段 5：深渊与压迫感 ==================== -->
+    <section class="section abyss-section" data-stage="5">
+      <div class="abyss-content">
+        <p class="whisper-line" data-reveal>你为什么还在往下滑？</p>
+        <p class="whisper-line" data-reveal>刚才有什么东西从你眼角闪过去了，对吗？</p>
+        <p class="whisper-line danger-line" data-reveal>不要回头。</p>
+        <p class="whisper-line small-whisper" data-reveal>它不喜欢被你发现。</p>
+      </div>
+    </section>
+
+    <!-- ==================== 阶段 6：终局与凝视 ==================== -->
+    <section class="section climax-section" data-stage="6">
+      <div class="eye-container" id="giant-eye-wrap">
+        <svg id="giant-eye" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="黑暗中的眼睛">
+          <defs>
+            <radialGradient id="irisGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#050000" />
+              <stop offset="45%" stop-color="#3a0000" />
+              <stop offset="80%" stop-color="#8b0000" />
+              <stop offset="100%" stop-color="#1a0000" />
+            </radialGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+              <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <clipPath id="eyeClip">
+              <path id="eye-outline" d="M 20,110 Q 200,-20 380,110 Q 200,240 20,110 Z" />
+            </clipPath>
+          </defs>
+          <!-- 眼白（布满血丝的暗灰白） -->
+          <path d="M 20,110 Q 200,-20 380,110 Q 200,240 20,110 Z" fill="#181212" stroke="#4a0808" stroke-width="2" />
+          <g clip-path="url(#eyeClip)">
+            <!-- 血丝 -->
+            <path d="M 35,110 L 85,102 L 110,115" stroke="#5c0a0a" stroke-width="1.2" fill="none" opacity="0.7" />
+            <path d="M 365,110 L 310,104 L 290,118" stroke="#5c0a0a" stroke-width="1.2" fill="none" opacity="0.7" />
+            <path d="M 60,90 L 105,98" stroke="#4a0606" stroke-width="1" fill="none" opacity="0.6" />
+            <path d="M 340,130 L 295,122" stroke="#4a0606" stroke-width="1" fill="none" opacity="0.6" />
+            <!-- 可移动的眼球 -->
+            <g id="pupil-group">
+              <circle cx="200" cy="110" r="56" fill="url(#irisGrad)" filter="url(#glow)" />
+              <circle cx="200" cy="110" r="24" fill="#000000" />
+              <circle cx="188" cy="96" r="5" fill="#ffffff" opacity="0.35" />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="climax-text">
+        <h2 class="final-title">晚安。</h2>
+        <p class="final-sub">今晚，Solace 也会一直看着你。</p>
+        <button id="restart-btn" type="button" class="btn-restart">回到顶部（假装什么都没发生）</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
